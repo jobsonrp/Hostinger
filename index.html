@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Menu de administra&ccedil;&atilde;o</title>
+<link rel="stylesheet" href="alunos.css" type="text/css" />
+</head>
+<script language="JavaScript">
+function validar(form1) {
+    if (parseInt(document.form1.aluno.value) % 1 === 0)
+	return true
+    else{	
+        alert("Digite um número para o código do aluno!")
+        document.form1.aluno.focus()
+        return false
+    }
+    achou=false
+    for(i=0;i<=2;i++){ 
+        if(document.form1.oper[i].checked){ 
+            achou=true
+            break
+        }
+    }
+    if (achou)
+        return true
+    else{
+        alert("Informe a operação: Consultar, Excluir ou Alterar!")
+        return false
+    }
+}
+</script>
+<body bgcolor="#eeeeeff">
+<div id=area_geral>
+<table width="750" border="0" bgcolor="#000033"
+                cellspacing="0" cellpadding="0">
+ <tr><td>&nbsp;</td></tr>
+ <tr>
+  <td><font size="4" color="#FFFFFF"><strong>&nbsp;&nbsp; 
+                     CRUD - Alunos</strong></font></td>
+ </tr>
+ <tr><td>&nbsp;</td></tr>
+</table>
+<table width="750" border="0" bgcolor="#4499FF" 
+                cellpadding="0" cellspacing="0">
+ <tr><td>&nbsp;</td></tr> <tr><td>&nbsp;</td></tr>
+ <tr>
+  <td width="125">&nbsp;</td>	
+  <td width="538" height="255" valign="top">
+ <table width="90%" border="0" bgcolor="#DADDFE"
+     cellpadding="0" cellspacing="0" rules="cols">
+ <tr><td colspan="4" align="center">
+         <h3><u>Administração dos Alunos</u></h3></td></tr>
+<!-- --------------------- Submenu alunos ----------------------------- -->	
+  <td width="22%" height="253" valign="top">
+ <table width="100%" border="0" bgcolor="#DADDFE"
+                  cellpadding="0" cellspacing="0">
+ <form name="form1" method="post" action="admin_aluno.php"
+        onsubmit="return validar(this);">	   
+  <tr><td>&nbsp;&nbsp;&nbsp;Código do Aluno:
+      <input type="text" size=10 name="aluno" value=""> </td></tr>
+  <tr><td>&nbsp;</td></tr>	
+  <tr><td align="center">
+      <input name="oper" type="radio" id="oper1a" value="con" />
+   <label for="oper1a">Consultar</label>
+      <input name="oper" type="radio" id="oper1b" value="exc" />
+   <label for="oper1b">Excluir</label>
+      <input name="oper" type="radio" id="oper1c" value="alt" />
+   <label for="oper1c">Alterar</label> 
+	  &nbsp;&nbsp;<input type="submit" name="enter" value=" Enter "> </td></tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr><td align="center">
+      <input type="button" value=" &nbsp;Listar&nbsp;&nbsp; " 
+             onclick="window.location='lista_alunos.php'"></td></tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr><td><hr /></td></tr>
+ </form>
+  <tr><td align="center">	
+      <h3><u>Cadastro dos Alunos</u></h3></td></tr>
+
+  <tr><td align="center">	
+      <input type="button" value=" &nbsp;Incluir&nbsp;&nbsp; " 
+             onclick="window.location='inc_aluno.php'"></td></tr>
+  <tr><td>&nbsp;</td></tr>
+
+ </table> </td>
+ 
+</table></td>
+   <td width="63">&nbsp;</td></tr> 
+  <tr><td>&nbsp;</td></tr>
+</table>
+</div>
+</body>
+</html>		
+
