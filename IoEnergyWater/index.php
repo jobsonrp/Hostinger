@@ -5,7 +5,51 @@
  
 <head>
 
-	<title>Tela Inicial</title>
+<script language="JavaScript">
+function validar(form1) {
+    var jsEmail=document.form1.inputEmail.value
+    if (!jsEmail) {
+        alert("Informe seu e-mail")
+        document.form1.inputEmail.focus()
+        return false
+    }	 	 
+    var tstEmail
+    tstEmail=validarEmail(jsEmail)
+    if (tstEmail==false) {
+        alert("E-mail inválido")
+        document.form1.inputEmail.focus()
+        return false
+    }
+}
+function validarEmail(email) {
+    var tstLogico=false
+    var tam=(email.length)
+    var i
+    for(i=0;i<=tam;i++) { 
+        if ((email.substr(i,1)) == "@") {
+            tstLogico=true
+            break
+        }    
+    }
+    if (tstLogico)
+        return true
+    else
+        return false 
+}
+function validarData(data) {
+    var dia=data.substr(0,2)
+    var mes=data.substr(3,2)
+    var ano=data.substr(6,4)
+    if ((dia>"00") && (dia<=31) &&
+        (mes>"00") && (mes<=12) &&
+        (!(isNaN(ano))) && (ano>2000))
+        return true
+    else
+        return false
+}
+</script>
+
+	<title>Menu Horizontal</title>
 	<style type="text/css">
 	<!--
 		body {
@@ -104,12 +148,15 @@ body {
   
   <div id=area_geral>
   	<div id="menu">
-
 		<ul>
-			<li><a href="CrudAlunos/crud_alunos.html">CRUD</a></li>
-			<li><a href="IoEnergyWater/index.php">IoEnergyWater</a></li>
-			<li><a href="testeLogin/login.php">Testes</a></li>
-			<li><a href="Links/links.html">Links</a></li>
+			<li><a href="login.html">Login</a></li>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="">Energy</a></li>
+			<li><a href="">Water</a></li>
+			<li><a href="">Alerts</a></li>
+			<li><a href="">Energy History</a></li>
+			<li><a href="">Water History</a></li>
+			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
 <table width="1050" border="0" bgcolor="#000033"
@@ -117,7 +164,7 @@ body {
  <tr><td>&nbsp;</td></tr>
  <tr>
   <td><font size="4" color="#FFFFFF"><strong>&nbsp;&nbsp; 
-                     Fundamentos de Engenharia de Software - UFRPE</strong></font></td>
+                     IoEnergyWater</strong></font></td>
  </tr>
  <tr><td>&nbsp;</td></tr>
 </table>
@@ -131,7 +178,7 @@ body {
  <table width="90%" border="0" bgcolor="#DADDFE"
      cellpadding="0" cellspacing="0" rules="cols">
  <tr><td colspan="4" align="center">
-         <h3>Tela Inicial</h3></td></tr>
+         <h3>Log in to IoEnergyWater</h3></td></tr>
    
    <tr><td>&nbsp;</td></tr>
 <!-- --------------------- Submenu alunos ----------------------------- -->	
@@ -141,8 +188,39 @@ body {
 
   <tr><td align="center">
     
-<form class="form-horizontal">
   
+<form id="form1" name="form1" method="POST" action="login.php" onsubmit="return validar(this);">
+
+  <div class="control-group">
+
+    <div class="controls">
+      <input id="inputEmail" name="inputEmail" type="text" placeholder="Email address" />
+    </div>
+    
+    <div class="controls">
+      <input id="inputPassword" name="inputPassword" type="password" placeholder="Password" />
+    </div>
+  
+    <div class="controls">
+      <input type="submit" value="Log In" id="enter" name="enter"><br>
+      
+    </div>
+  </div>
+</form>
+   
+
+<form class="form-horizontal">
+
+  <h5>Login: jose@com.br     Password:1234.</h5>
+  
+  <h5>New to IoEnergyWater? Create an account.</h5>
+
+
+  <tr><td align="center">	
+      <input type="button" value=" &nbsp;Sign Up&nbsp;&nbsp; " 
+             onclick="window.location='inc_aluno.php'"></td></tr>
+  <tr><td>&nbsp;</td></tr>
+
   </table> </td>
  
     </table></td>
@@ -151,8 +229,7 @@ body {
     <tr><td>&nbsp;</td></tr>
   </table>
 
-</form> 
-
-
+</form>
+  
 </body>
 </html>	

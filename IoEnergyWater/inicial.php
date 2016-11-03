@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION["status"]))
+        header("location:index.php");
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
  
@@ -5,7 +12,7 @@
  
 <head>
 
-	<title>Tela Inicial</title>
+	<title>Menu Horizontal</title>
 	<style type="text/css">
 	<!--
 		body {
@@ -104,12 +111,15 @@ body {
   
   <div id=area_geral>
   	<div id="menu">
-
 		<ul>
-			<li><a href="CrudAlunos/crud_alunos.html">CRUD</a></li>
-			<li><a href="IoEnergyWater/index.php">IoEnergyWater</a></li>
-			<li><a href="testeLogin/login.php">Testes</a></li>
-			<li><a href="Links/links.html">Links</a></li>
+			<li><a href="index.html">Login</a></li>
+			<li><a href="inicial.html">Home</a></li>
+			<li><a href="">Energy</a></li>
+			<li><a href="">Water</a></li>
+			<li><a href="">Alerts</a></li>
+			<li><a href="">Energy History</a></li>
+			<li><a href="">Water History</a></li>
+			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
 <table width="1050" border="0" bgcolor="#000033"
@@ -117,7 +127,7 @@ body {
  <tr><td>&nbsp;</td></tr>
  <tr>
   <td><font size="4" color="#FFFFFF"><strong>&nbsp;&nbsp; 
-                     Fundamentos de Engenharia de Software - UFRPE</strong></font></td>
+                     IoEnergyWater</strong></font></td>
  </tr>
  <tr><td>&nbsp;</td></tr>
 </table>
@@ -131,7 +141,7 @@ body {
  <table width="90%" border="0" bgcolor="#DADDFE"
      cellpadding="0" cellspacing="0" rules="cols">
  <tr><td colspan="4" align="center">
-         <h3>Tela Inicial</h3></td></tr>
+         <h3>Log in Success!! Welcome to IoEnergyWater</h3></td></tr>
    
    <tr><td>&nbsp;</td></tr>
 <!-- --------------------- Submenu alunos ----------------------------- -->	
@@ -141,8 +151,17 @@ body {
 
   <tr><td align="center">
     
+
 <form class="form-horizontal">
   
+  <h5>New to IoEnergyWater? Create an account.</h5>
+
+
+  <tr><td align="center">	
+      <input type="button" value=" &nbsp;Sign Up&nbsp;&nbsp; " 
+             onclick="window.location='inc_aluno.php'"></td></tr>
+  <tr><td>&nbsp;</td></tr>
+
   </table> </td>
  
     </table></td>
@@ -151,8 +170,7 @@ body {
     <tr><td>&nbsp;</td></tr>
   </table>
 
-</form> 
-
-
+</form>
+  
 </body>
 </html>	

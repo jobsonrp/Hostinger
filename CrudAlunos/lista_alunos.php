@@ -29,7 +29,7 @@
    </tr>
      <tr><td colspan="6">&nbsp;</td></tr>
      <tr align="center">
-      <td><a href="lista_alunos.php?ordem=id_aluno">
+      <td><a href="/lista_alunos.php?ordem=id_aluno">
                     <strong>Código</strong></a></td>
       <td><a href="lista_alunos.php?ordem=nome">
                     <strong>Nome</strong></a></td>
