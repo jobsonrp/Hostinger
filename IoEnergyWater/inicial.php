@@ -1,7 +1,11 @@
 <?php
 	session_start();
-	if(!isset($_SESSION["status"]))
-        header("location:index.php");
+	if(!isset($_SESSION["status"])){
+          echo"<script language='javascript' type='text/javascript'>alert('Please! Make the Login.');window.location.href='index.php';</script>";
+        }
+        else{
+        $login = $_SESSION['inputEmail'];
+        }
 ?>
 
 
@@ -12,7 +16,7 @@
  
 <head>
 
-	<title>Menu Horizontal</title>
+	<title>Tela Inicial</title>
 	<style type="text/css">
 	<!--
 		body {
@@ -94,7 +98,7 @@ body,td,th {
 	font-size: 16px;
 	font-family: Verdana, Geneva, sans-serif;
 }
-.textos {
+textos {
 	color: #FFF;
 	font-size: 18px;
 }
@@ -103,8 +107,8 @@ body {
 }
 
       
-	-->
-	</style>
+-->
+</style>
 </head>
  
 <body bgcolor="#eeeeff">
@@ -127,11 +131,24 @@ body {
  <tr><td>&nbsp;</td></tr>
  <tr>
   <td><font size="4" color="#FFFFFF"><strong>&nbsp;&nbsp; 
-                     IoEnergyWater</strong></font></td>
+                     IoEnergyWater
+
+
+</strong></font></td>
+
+<td align='right' 'Username'><font size="4" color="#FFFFFF"><strong>&nbsp;&nbsp; 
+<?php
+
+echo "Username : $login";
+
+?> &nbsp;&nbsp;  
+</strong></font></td>
+
  </tr>
  <tr><td>&nbsp;</td></tr>
 </table>
-  
+
+
 <table width="1050" border="0" bgcolor="#4499FF" 
                 cellpadding="0" cellspacing="0">
  <tr><td>&nbsp;</td></tr> <tr><td>&nbsp;</td></tr>
@@ -173,4 +190,4 @@ body {
 </form>
   
 </body>
-</html>	
+</html>		

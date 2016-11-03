@@ -17,7 +17,7 @@ if(isset($_POST['inputPassword']))
         }else{
 
            $_SESSION["status"] = "1";
-           //$_SESSION['inputPassword'] = $senha;
+           $_SESSION['inputEmail'] = $login;
 
            header('location:inicial.php');
 
